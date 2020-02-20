@@ -1,0 +1,4 @@
+bin
+cmake-*
+.idea
+*.import

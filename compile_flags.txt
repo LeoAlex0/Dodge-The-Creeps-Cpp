@@ -1,0 +1,7 @@
+-fPIC
+-std=c++14
+-Igodot-cpp/include
+-Igodot-cpp/include/core
+-Igodot-cpp/include/gen
+-Igodot-cpp/godot_headers
+
