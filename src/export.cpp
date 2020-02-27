@@ -1,3 +1,6 @@
+#include "HUD.hpp"
+#include "Main.hpp"
+#include "Mob.hpp"
 #include "Player.hpp"
 
 #include <Godot.hpp>
@@ -16,5 +19,8 @@ void GDN_EXPORT godot_nativescript_init( void *handle ) {
     Godot::nativescript_init( handle );
 
     register_class<Player>();
+    register_class<Mob>();
+    register_class<Main>();
+    register_class<HUD>();
 }
 }

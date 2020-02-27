@@ -1,5 +1,5 @@
 -fPIC
--std=c++14
+-std=c++17
 -Igodot-cpp/include
 -Igodot-cpp/include/core
 -Igodot-cpp/include/gen
