@@ -1,0 +1,24 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build CMake
+      uses: ashutoshvarma/action-cmake-build@v1
+      with:
+        # Build directory where build files will be generated
+        build-dir: ${{ runner.workspace }}/build # default is ${{ runner.workspace }}/build
+        # CMake build type (Release, Debug, MinSizeRel, RelWithDebInfo)
+        build-type: Release # default is Release
+        # Update git submodules
+        submodule-update: true # optional, default is false
