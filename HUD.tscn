@@ -40,6 +40,7 @@ margin_top = -200.0
 margin_right = 100.0
 margin_bottom = -100.0
 custom_fonts/font = ExtResource( 1 )
+action_mode = 0
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false

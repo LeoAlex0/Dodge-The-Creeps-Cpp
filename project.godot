@@ -32,6 +32,10 @@ window/stretch/aspect="expand"
 
 singletons=[  ]
 
+[global]
+
+HiDPI=true
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true

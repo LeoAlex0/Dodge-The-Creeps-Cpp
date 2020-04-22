@@ -9,7 +9,6 @@
 #include <PackedScene.hpp>
 #include <Ref.hpp>
 #include <Timer.hpp>
-#include <random>
 
 using namespace godot;
 
@@ -48,16 +47,11 @@ void Main::onMobTimerTimeout() {
     add_child( mob );
 
     // Calculate Random position & velocity on Edges
-    static std::default_random_engine  e;
-    std::uniform_int_distribution<int> posDistrib(
-        0, 2 * ( screenSize.x + screenSize.y ) - 1 );
-    std::uniform_real_distribution<float> velDistrib(
-        mob->get( "speed/min_speed" ), mob->get( "speed/max_speed" ) );
-    std::uniform_real_distribution<float> dirDistrib( -Math_PI / 4,
-                                                      Math_PI / 4 );
 
     Vector2 vel, pos;
-    if ( int posPix = posDistrib( e ); posPix < screenSize.x ) { // Up Edge
+    if ( float posPix = generator->randf_range(
+             0, 2 * ( screenSize.x + screenSize.y ) - 1 );
+         posPix < screenSize.x ) { // Up Edge
         pos = Vector2( posPix, 0 );
         vel = Vector2( 0, 1 );
     } else if ( posPix < screenSize.x + screenSize.y ) { // right edge
@@ -71,10 +65,12 @@ void Main::onMobTimerTimeout() {
         vel = Vector2( 1, 0 );
     }
 
-    float dir = dirDistrib( e );
+    float dir = generator->randf_range( -Math_PI / 4, Math_PI / 4 );
     vel       = vel.rotated( dir );
     mob->set_position( pos );
-    mob->set_linear_velocity( vel * velDistrib( e ) );
+    mob->set_linear_velocity(
+        vel * generator->randi_range( mob->get( "speed/min_speed" ),
+                                      mob->get( "speed/max_speed" ) ) );
     mob->set_rotation( vel.angle() );
 }
 
@@ -107,4 +103,9 @@ void Main::onStartButtonPressed() {
     hud.showMessage( readyMessage );
     hud.refreshScore( score = 0 );
     state = READY;
+}
+
+void Main::_ready() {
+    generator = RandomNumberGenerator::_new();
+    generator->randomize();
 }

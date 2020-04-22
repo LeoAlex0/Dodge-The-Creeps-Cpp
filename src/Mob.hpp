@@ -8,7 +8,7 @@ class Mob : public godot::RigidBody2D {
     GODOT_CLASS( Mob, godot::RigidBody2D );
 
   public:
-    void        _init() {}
+    void _init() { }
     static void _register_methods() {
         using namespace godot;
 
@@ -22,7 +22,7 @@ class Mob : public godot::RigidBody2D {
     void _ready();
     void onScreenExited();
 
-    int MaxSpeed = 400, MinSpeed = 250;
+    int MaxSpeed, MinSpeed;
 };
 
 #endif // SCRIPTS_MOB_HPP

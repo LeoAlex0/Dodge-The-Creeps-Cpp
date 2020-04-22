@@ -14,6 +14,9 @@ void Mob::_ready() {
     static std::uniform_int_distribution<int> mobTypeDistribution(
         0, sizeof( mobTypes ) / sizeof( *mobTypes ) - 1 );
 
+    MinSpeed = 250;
+    MaxSpeed = 400;
+
     AnimatedSprite &animatedSprite =
         *(AnimatedSprite *) get_node( "AnimatedSprite" );
     animatedSprite.set_animation( mobTypes[ mobTypeDistribution( e ) ] );

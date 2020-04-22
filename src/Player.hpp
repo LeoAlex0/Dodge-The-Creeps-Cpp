@@ -10,7 +10,10 @@ class Player : public godot::Area2D {
     GODOT_CLASS( Player, godot::Area2D );
 
   public:
-    void        _init() {}
+    void _init() {
+        Speed   = 400;
+        _target = godot::Vector2( 0, 0 );
+    }
     static void _register_methods() {
         using namespace godot;
 
@@ -20,8 +23,8 @@ class Player : public godot::Area2D {
         register_method( "_input", &Player::_input );
     }
 
-    int            Speed   = 400;
-    godot::Vector2 _target = godot::Vector2( 0, 0 );
+    int            Speed;
+    godot::Vector2 _target;
 
     void _process( const float delta );
     void _input( const godot::Ref<godot::InputEvent> event );
