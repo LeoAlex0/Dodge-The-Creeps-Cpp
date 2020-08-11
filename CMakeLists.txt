@@ -35,8 +35,8 @@ if(ANDROID)
     # Added the android abi after system name
     set(SYSTEM_NAME ${SYSTEM_NAME}.${ANDROID_ABI})
     # Android does not have the bits at the end if you look at the main godot repo build
-    set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}.${SYSTEM_NAME}.${BUILD_TYPE}")
+    set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}.${SYSTEM_NAME}")
 else()
-    set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}.${SYSTEM_NAME}.${BUILD_TYPE}.${BITS}")
+    set_property(TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}.${SYSTEM_NAME}.${BITS}")
 endif()
 
