@@ -2,7 +2,7 @@
 
 Refactored [Godot Official Demo](https://docs.godotengine.org/en/stable/getting_started/step_by_step/your_first_game.html#) Using [GDNative](https://docs.godotengine.org/en/stable/tutorials/plugins/gdnative/gdnative-cpp-example.html)
 
-![Start_Menu](docs/Start Menu.png)
+![Start_Menu](docs/StartMenu.png)
 
 ## Prerequires
 
